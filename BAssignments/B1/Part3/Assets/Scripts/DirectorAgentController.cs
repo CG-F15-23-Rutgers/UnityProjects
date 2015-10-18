@@ -57,7 +57,7 @@ public class DirectorAgentController : MonoBehaviour
                     agentsList.Add(tempAgent);
                 } 
             }
-            if (hit.transform.tag == "Ground" && Input.GetMouseButtonDown(1))
+            if (hit.transform.tag == "Ground" && Input.GetMouseButtonDown(0))
             {
                 foreach (NavMeshAgent agent in agentsList)
                 {
