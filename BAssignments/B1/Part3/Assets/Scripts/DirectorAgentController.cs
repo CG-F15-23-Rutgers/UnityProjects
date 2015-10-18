@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CapsuleCollider))]
@@ -12,7 +13,7 @@ public class DirectorAgentController : MonoBehaviour
 
 	[System.NonSerialized]
 	
-	public float animSpeed = 1.5f;              // animation speed
+	public float animSpeed = 1f;              // animation speed
 	public bool curve;                          // curves to fix collider during jump
 	
 	private Animator refPlayerAnim;                         // reference player animator
@@ -23,10 +24,20 @@ public class DirectorAgentController : MonoBehaviour
 	static int checkJump = Animator.StringToHash("Base Layer.Jump");
 
 	public GameObject agentObject;
+	public GameObject speedSetting;
 
+	private bool runFlag;
+	
     // Use this for initialization
     void Start()
     {
+		runFlag = false;
+		refPlayerAnim = agentObject.GetComponent<Animator>();
+		refCollider = agentObject.GetComponent<CapsuleCollider>();
+		if (refPlayerAnim.layerCount == 2) {
+			refPlayerAnim.SetLayerWeight (1, 1);
+		}
+
         agentsList = new List<NavMeshAgent>();
 		// references
     }
@@ -53,34 +64,49 @@ public class DirectorAgentController : MonoBehaviour
                     agent.destination = hit.point;
                 }
                 agentsList.Clear();
+				if (Input.GetKey(KeyCode.T)){
+
+					runFlag = true;
+				}
+				else{
+					runFlag = false;
+				}
             }
         }
     }
 
 	void FixedUpdate()
 	{
-		refPlayerAnim = agentObject.GetComponent<Animator>();
-		refCollider = agentObject.GetComponent<CapsuleCollider>();
-		if (refPlayerAnim.layerCount == 2) {
-			refPlayerAnim.SetLayerWeight (1, 1);
-		}
-		//float horiz = Input.GetAxis("Horizontal");              // horizontal input axis
-		//float vert = Input.GetAxis("Vertical");             // vertical input axis
-		//refPlayerAnim.SetFloat("Speed", vert);
-		//refPlayerAnim.SetFloat("Direction", horiz);
-		refPlayerAnim.speed = animSpeed;                                // animation speed variable
-		refAnimState = refPlayerAnim.GetCurrentAnimatorStateInfo(0); // set our currentState variable to the current state of the Base Layer (0) of animation
-
 		NavMeshAgent agentMesh = agentObject.GetComponent<NavMeshAgent>();
-		Debug.Log (agentMesh.hasPath);
 
+		if (agentMesh.hasPath && agentMesh.remainingDistance >= speedSetting.GetComponent<Slider>().value * 0.5) {
+			refPlayerAnim.SetFloat("Speed", 1);
+			//speedSetting.GetComponent<Slider>().value + 0.5f;
+			//agentMesh.velocity = refPlayerAnim.deltaPosition / Time.deltaTime;
+			if (runFlag){
+				refPlayerAnim.SetFloat("Run", 1);
+			}
+			else{
+				refPlayerAnim.SetFloat("Run", 0);
+			}
 
-		if (agentMesh.hasPath) {
-			refPlayerAnim.SetFloat("Run", 0);
+			refPlayerAnim.speed = speedSetting.GetComponent<Slider>().value;
+			//transform.rotation = Quaternion.LookRotation(agentMesh.desiredVelocity);
+
+			if (agentMesh.isOnOffMeshLink){
+				refPlayerAnim.SetBool("Jump", true);
+			}else{
+				refPlayerAnim.SetBool("Jump", false);
+			}
+
+			refAnimState = refPlayerAnim.GetCurrentAnimatorStateInfo(0);
+			//refPlayerAnim.SetFloat("Run", 0);
 		} else {
-			refPlayerAnim.SetFloat("Run", 1);
+			refPlayerAnim.SetFloat("Speed", 0);
+			refPlayerAnim.speed = animSpeed;
+			refAnimState = refPlayerAnim.GetCurrentAnimatorStateInfo(0);
+			//refPlayerAnim.SetFloat("Run", 1);
 		}
-
 	}
 
 }
