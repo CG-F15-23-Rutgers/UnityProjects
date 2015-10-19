@@ -6,9 +6,7 @@ Check out our website: [Virtual Reality with Steerlite and Unity](http://virtual
 ![Rutgers](teamLogo.png)
 
 ###B1: Navigation and Animation
-1. I am a fun project!
-2. Features
-3. Description
+Control a set of complex, humanoid agents in a complex environment which includes mazes, multiple levels, enemies, and other obstacles. This demonstrates how to combine character animation with collision avoidance and path planning in Unity.
 
 ###B2: Inverse Kinematics
 1. I am a hard project!
