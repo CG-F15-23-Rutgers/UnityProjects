@@ -1,9 +1,9 @@
-#Group Name
+#CG-F15-23-Rutgers
 ######Unity Projects - CG Fall 2015 @ Rutgers
-######By: *[Leader], [Member1], [Member2], [Member3]*
-Check out our website: [Group Name Website](https://www.google.com "Google's Homepage!")
+######By: *[Zachary Daniels (zad7)], [Nilay Chakraborty (nc541)], [Tanvi Borkar (tab251)], [Zooraze Tariq (zt32)]*
+Check out our website: [Virtual Reality with Steerlite and Unity](http://virtualrealityrutgerscg23.blogspot.com/2015/10/crowd-simulation-and-animation-in-unity.html "Virtual Reality with Steerlite and Unity")
 
-![alt text](teamLogo.png)
+![Rutgers](teamLogo.png)
 
 ###B1: Navigation and Animation
 1. I am a fun project!
