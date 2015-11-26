@@ -20,15 +20,12 @@ Functionality and Implementation: We've included several functionalities/afforda
 	ST_Interaction_Event: Another small collection of actions. Just two agents interacting and high-fiving.
 	ST_Follow: An agent will go to the location of a GameObject indefinitely.
 
-
 In order to implement the ball interactions we created a new node for handling object movement in Ball.cs. This is a simple implementation that simply allows the agent to throw the ball in some GameObject's direction at a certain speed.
 
-Control Nodes: We also implemented a new Control Node of our own. We placed this in NonLinearSelect.cs. This allows us to randomly select one sequence/action from a list and run it. This is useful because in order to make the game non-linear, it's useful to often make decisions randomly. It's even more non-linear if it doesn't just shuffle them, but actually doesn't do certain things. We use this in 
+Behavior Tree: The included control nodes we primarily used were Selector, Sequence, SequenceParallel, SequenceShuffle and DecoratorLoop. We also implemented a new Control Node of our own. We placed this in NonLinearSelect.cs. This allows us to randomly select one sequence/action from a list and run it. This is useful because in order to make the game non-linear, it's useful to often make decisions randomly. It's even more non-linear if it doesn't just shuffle them, but actually doesn't do certain things. We use this at certain decision points as well as for conversation gestures. Selector goes through sequences but not selecting with a random range like NonLinearSelect. Sequence goes through affordances, and SequenceParallel is useful for running multiple sequences simultaneously. SequenceShuffle goes through all affordances randomaly. Finally, DecoratorLoop is used to embelish sequences.
+
+Extra Credit Attempts: We tried to add some things not stricly called for in the assignment such as extra affordances, the interactive element being a secondary behavior with a controllable AI agent, and a complex behavior with numerous points of decision. Our focus was telling a story while still being as non-linear as posisble.
 
 Known bugs and failures: We made some attempts which didn't quite work out. This includes giving agents a line of sight/detection radius for other agents, allowing agents to interact automatically as they move past each other. Also, sometimes the IK handler acts up when an agent presses a button during runtime. We aren't sure why this is happening, as our code works fine for handling the ball interactions. The most noticeable problem is that sometimes the animations cut off or look strange/jerky. We couldn't figure out how to fix this, or whether it might be something to do with KADAPT or how we were using it. Given the limited time, we couldn't get to know the library well enough to fix this problem.
 
-Behavior Tree Description. Justify control nodes used.
-
-Illustration of Tree.
-
-Link to blogger post:
+Link to blog post: http://virtualrealityrutgerscg23.blogspot.com/2015/11/implementing-behaviors-in-unity.html
