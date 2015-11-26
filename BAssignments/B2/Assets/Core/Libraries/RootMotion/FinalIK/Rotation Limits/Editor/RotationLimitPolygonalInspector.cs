@@ -62,8 +62,8 @@ namespace RootMotion.FinalIK {
 			if (script.axis == Vector3.zero) return;
 			
 			// Quick Editing Tools
-			Handles.BeginGUI();		
-			GUILayout.BeginArea(new Rect(10, Screen.height - 180, 550, 130), "Rotation Limit Polygonal", "Window");
+			Handles.BeginGUI();
+            GUILayout.BeginArea(new Rect(10, UnityEngine.Screen.height - 180, 550, 130), "Rotation Limit Polygonal", "Window");
 			
 			// Cloning values from another RotationLimitPolygonal
 			EditorGUILayout.BeginHorizontal();
@@ -132,8 +132,8 @@ namespace RootMotion.FinalIK {
 				// Limit point GUI
 				if (i == selectedPoint) {
 					Handles.BeginGUI();
-					
-					GUILayout.BeginArea(new Rect(Screen.width - 240, Screen.height - 180, 230, 130), "Limit Point " + i.ToString(), "Window");
+
+                    GUILayout.BeginArea(new Rect(UnityEngine.Screen.width - 240, UnityEngine.Screen.height - 180, 230, 130), "Limit Point " + i.ToString(), "Window");
 					
 					if (Inspector.Button("Delete", "Delete this point", script)) {
 						if (script.points.Length > 3) {

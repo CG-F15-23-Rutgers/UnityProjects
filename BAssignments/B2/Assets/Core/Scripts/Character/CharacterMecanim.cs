@@ -21,7 +21,7 @@ public class CharacterMecanim : MonoBehaviour
     void Awake() { this.Initialize(); }
 
     /// <summary>
-    /// Searches for and binds a reference to the Body interface
+    /// Searches for and binds a reference to the Body interwaface
     /// </summary>
     public void Initialize()
     {
@@ -307,7 +307,11 @@ public class CharacterMecanim : MonoBehaviour
     /// <summary>
     /// Sits the character down
     /// </summary>
-    public virtual RunStatus SitDown()
+	/// 
+	/// 
+ 
+
+	public virtual RunStatus SitDown()
     {
         if (this.Body.IsSitting() == true)
             return RunStatus.Success;

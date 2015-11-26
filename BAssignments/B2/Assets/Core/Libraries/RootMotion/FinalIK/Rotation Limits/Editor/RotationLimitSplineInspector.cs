@@ -118,8 +118,8 @@ namespace RootMotion.FinalIK {
 			Vector3 swing = script.axis.normalized;
 			
 			// Editing tools GUI
-			Handles.BeginGUI();		
-			GUILayout.BeginArea(new Rect(10, Screen.height - 140, 400, 90), "Rotation Limit Spline", "Window");
+			Handles.BeginGUI();
+            GUILayout.BeginArea(new Rect(10, UnityEngine.Screen.height - 140, 400, 90), "Rotation Limit Spline", "Window");
 			
 			// Scale Mode and Tangent Mode
 			GUILayout.BeginHorizontal();
@@ -244,7 +244,7 @@ namespace RootMotion.FinalIK {
 			// Selected Point GUI
 			if (selectedHandle != -1) {
 				Handles.BeginGUI();
-				GUILayout.BeginArea(new Rect(Screen.width - 240, Screen.height - 200, 230, 150), "Handle " + selectedHandle.ToString(), "Window");
+                GUILayout.BeginArea(new Rect(UnityEngine.Screen.width - 240, UnityEngine.Screen.height - 200, 230, 150), "Handle " + selectedHandle.ToString(), "Window");
 				
 				if (Inspector.Button("Delete", "Delete this handle", script)) {
 					if (keys.Length > 4) {

@@ -33,8 +33,8 @@ namespace RootMotion.FinalIK {
 			if (script.axis == Vector3.zero) return;
 			
 			// Quick Editing Tools
-			Handles.BeginGUI();		
-			GUILayout.BeginArea(new Rect(10, Screen.height - 100, 200, 50), "Rotation Limit Hinge", "Window");
+			Handles.BeginGUI();
+            GUILayout.BeginArea(new Rect(10, UnityEngine.Screen.height - 100, 200, 50), "Rotation Limit Hinge", "Window");
 			
 			// Rotating display
 			if (GUILayout.Button("Rotate display 90 degrees")) {

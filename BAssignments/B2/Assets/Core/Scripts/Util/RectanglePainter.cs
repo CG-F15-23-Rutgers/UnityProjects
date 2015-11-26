@@ -53,7 +53,7 @@ public class RectanglePainter : MonoBehaviour
     public void StartPainting(Vector3 mousePosition)
     {
         startPosition = mousePosition;
-        paintedRectangle = new Rect(mousePosition.x, Screen.height - mousePosition.y, 0, 0);
+        paintedRectangle = new Rect(mousePosition.x, UnityEngine.Screen.height - mousePosition.y, 0, 0);
     }
 
     /// <summary>
@@ -62,7 +62,7 @@ public class RectanglePainter : MonoBehaviour
     public void ContinuePainting(Vector3 mousePosition)
     {
         paintedRectangle.x = startPosition.x;
-        paintedRectangle.y = Screen.height - startPosition.y;
+        paintedRectangle.y = UnityEngine.Screen.height - startPosition.y;
         float width = mousePosition.x - startPosition.x;
         if (width < 0)
         {
@@ -72,7 +72,7 @@ public class RectanglePainter : MonoBehaviour
         float height = startPosition.y - mousePosition.y;
         if (height < 0)
         {
-            paintedRectangle.y = Screen.height - mousePosition.y;
+            paintedRectangle.y = UnityEngine.Screen.height - mousePosition.y;
             height = -height;
         }
         paintedRectangle.width = width;

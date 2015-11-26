@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Collections;
 using TreeSharpPlus;
@@ -363,6 +363,12 @@ public class BodyMecanim : MonoBehaviour
 
 		switch (gestureName.ToUpper())
 		{
+		case "THROW":
+			this.animator.SetBool("B_Throw",isActive);
+			break;
+		case "CLIMB":
+			this.animator.SetBool("B_Climb",isActive);
+			break;
 		case "BREAKDANCE": 
 			this.animator.SetBool("B_Breakdance", isActive); 
 			break;
@@ -418,6 +424,7 @@ public class BodyMecanim : MonoBehaviour
         this.animator.SetBool("H_CutThroat", false);
         this.animator.SetBool("H_ReachRight", false);
 		this.animator.SetBool ("H_LookUp", false);
+        this.animator.SetBool("H_BeingCocky", false);
 
         this.animator.SetBool("FaceAnimation", false);
         this.animator.SetBool("HandAnimation", false);
@@ -434,7 +441,7 @@ public class BodyMecanim : MonoBehaviour
     {
 		this.animator.SetBool ("B_Sitting", true);
     }
-
+	
     /// <summary>
     /// Stands the character1 up. Note that this will not interrupt
     /// the character's navigation if the character is still walking

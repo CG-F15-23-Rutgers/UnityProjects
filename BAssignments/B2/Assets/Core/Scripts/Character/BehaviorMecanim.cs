@@ -36,7 +36,10 @@ public class BehaviorMecanim : MonoBehaviour
     /// <summary>
     /// Approaches a target
     /// </summary>
-    public Node Node_GoTo(Val<Vector3> targ)
+	/// 
+	/// 
+
+	public Node Node_GoTo(Val<Vector3> targ)
     {
         return new LeafInvoke(
             () => this.Character.NavGoTo(targ),
