@@ -1,1 +1,34 @@
-This is a short Unity "game" demonstrating the capabilities of our behavior implemented using the KADAPT and Final IK libraries.  
+This is a short Unity "game" demonstrating the capabilities of our behavior implemented using the KADAPT and Final IK libraries. We have tried to make the behavior non-linear, scalable, and immersive. Multiple characters interact with each other, and the primary agent in this story, who we like to call Green (can you guess why?) makes some random choices and interacts with various characters in different ways.
+
+Another playable character is also included. This agent, imaginatively called Red, is actually controllable by the player using the WASD keys. He uses a secondary behavior which makes him follow a small green disc around using pathfinding and the animations provided for the AI characters. He serves as the interactive element of the game not only in that he moves around, but also because the behavior is altered by his location near the end of the narrative. In fact, the player can control when or even if the narrative ever reaches its end.
+
+Functionality and Implementation: We've included several functionalities/affordances and made some new ones as well. Some of the functions the agents can use are:
+	ApproachAndWait: Move to location and wait (included)
+	ST_Body_Animation: Run animations (adapted from tutorial)
+	ST_Hand_Animation: Run animations (adapted from tutorial)
+	ST_Face_Animation: Run animations (adapted from tutorial)
+	ST_LookAt: An agent turns to look at some GameObject, including other agents.
+	ST_Face_Off: Two agents simultaneously turn to face each other.
+	ST_Shake_Hands: Often fails during runtime, but not always. Function left in but not used.
+	ST_Speak_Pair: Two agents make gestures at each other to emulate speaking. This function goes through a list for each one using NonLinearSelect.
+	ST_Speak_Pair (looped): Same as before but allows for control of how many times it loops.
+	ST_Speak_Multiple: Currently only used for 3 agents, but can easily be extended for more. We planned to make it more complex but ended up not being able to implement the necessary functions (see looping through nearest agents problem).
+	ST_Get_Ball: Agent goes for and picks up a ball regardless of where it is using IK. Requires that the agent be positioned beforehand.
+	ST_Throw_Ball: Agent throws ball in general direction of a GameObject using IK.
+	ST_Press_Button: Agent presses a button using IK. Must be positions beforehand similar to ST_Get_Ball.
+	ST_Use_Ball_Event: Something of a "sub-behavior". Agent goes to ball's location, picks it up, and throws it. The pitcher and catcher interact.
+	ST_Interaction_Event: Another small collection of actions. Just two agents interacting and high-fiving.
+	ST_Follow: An agent will go to the location of a GameObject indefinitely.
+
+
+In order to implement the ball interactions we created a new node for handling object movement in Ball.cs. This is a simple implementation that simply allows the agent to throw the ball in some GameObject's direction at a certain speed.
+
+Control Nodes: We also implemented a new Control Node of our own. We placed this in NonLinearSelect.cs. This allows us to randomly select one sequence/action from a list and run it. This is useful because in order to make the game non-linear, it's useful to often make decisions randomly. It's even more non-linear if it doesn't just shuffle them, but actually doesn't do certain things. We use this in 
+
+Known bugs and failures: We made some attempts which didn't quite work out. This includes giving agents a line of sight/detection radius for other agents, allowing agents to interact automatically as they move past each other. Also, sometimes the IK handler acts up when an agent presses a button during runtime. We aren't sure why this is happening, as our code works fine for handling the ball interactions. The most noticeable problem is that sometimes the animations cut off or look strange/jerky. We couldn't figure out how to fix this, or whether it might be something to do with KADAPT or how we were using it. Given the limited time, we couldn't get to know the library well enough to fix this problem.
+
+Behavior Tree Description. Justify control nodes used.
+
+Illustration of Tree.
+
+Link to blogger post:
