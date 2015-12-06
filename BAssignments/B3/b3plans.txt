@@ -1,0 +1,138 @@
+Goal: We must create an interactive, non-linear, immersive narrative experience. Think "game". 
+This game can have any structure and story we want. 
+Many of the requirements have been created in previous assignments. 
+We can approach this by using B2 as our template, and extending it with previous projects, 
+as well as new implementations as required. 
+However, we can now afford to be more creative with how B2's story is handled. 
+We can add new characters, a camera, a more complex scene, etc.
+
+-- -- Key -- --
+
+(A)		: 	Zooraze
+(B)		: 	Tanvi
+(C)		: 	Nilay
+(D)		: 	Zach
+...		: 	More thought required. These can become extra credit attempts if we add enough.
+
+-- -- Requirements -- -- 
+
+Narrative Experience (Game):
+
+[ ] interactive
+[ ] non-linear
+[ ] immersive 
+
+-- Part 1: Quiet on the set... --
+
+[ ] Compelling story
+	[ ] Using Parameterized Behavior Trees
+		[ ] Multi-actor behaviors/events
+			[ ] Mingle
+				[ ] Sub event 1
+				[ ] Sub event 2
+				[ ] ...
+			[ ] Play Ball
+				[ ] Sub event 1
+				[ ] Sub event 2
+				[ ] ...
+			[ ] Shake Hands
+				[ ] Sub event 1
+				[ ] Sub event 2
+				[ ] ...
+			[ ] ...
+	[ ] Several characters
+	[ ] Beginning
+	[ ] Middle
+	[ ] End
+[ ] Scene Direction
+	[ ] Camera Movement
+	[ ] Display Messages (Dialogue/Events)
+	[ ] Event triggers
+	[ ] ...
+[ ] Environment
+	[ ] Various objects the character can interact with
+		[ ] door
+			[ ] open/close
+		[ ] switch
+		[ ] projector
+		[ ] ball
+		[ ] display stand
+		[ ] podium
+		[ ] vase
+		[ ] ...
+[ ] Unique characters
+	[ ] Models
+	[ ] Capabilities
+		[ ] Goto
+		[ ] Wander
+		[ ] Gesture
+		[ ] Offer Hand
+		[ ] Take Hand
+		[ ] Shake
+		[ ] ...
+[ ] A crowd
+	[ ] background characters exhibiting ambient activity
+		[ ] Randomly roam, mingle, and inspect art.
+		[ ] Look at event
+			[ ] Surprised
+			[ ] Excited
+			[ ] Sad
+			[ ] Attentive
+			[ ] ...
+		[ ] Approach Event
+			[ ] Curious (Walking)
+			[ ] Frightened (Running)
+		[ ] Disperse
+
+
+-- Part 2: Lights, camera... -- 
+
+[ ] Interactive Behavior Tree Implementation
+	[ ] Closely resembles the narrative slides
+		[ ] Same architecture
+		[ ] Same objectives
+[ ] Assume character as human interactor
+	[ ] Control movement and interactions
+	[ ] Modify interactive tree accordingly
+[ ] Interaction
+	[ ] Player interacts with story
+		[ ] Changes flow of game
+			[ ] Can walk into different event trigger zones, etc.
+		[ ] Alters which ending occurs
+			[ ] Speaker takes the stage
+				[ ] Crowd notices, then gathers
+			[ ] Speaker Leaves
+				[ ] Crowd gets angry and leaves
+			[ ] Piece of art is dropped
+				[ ] Crowd notices, gathers, disperses
+			[ ] Podium Topples
+			[ ] ...
+
+-- Part 3: Action! --
+
+[ ] Make all characters possible human interactors (A)
+[ ] Human Player Possession (A)
+	[ ] Select actor
+	[ ] Seamlessly switch between actors
+
+
+-- -- Submission: That's All Folks! -- --
+[ ] Github url of entire Unity Project
+[ ] Your Unity project in a zip file which contains the Assets/ folder and includes all your C#
+		scripts. This file will likely be very large (hundreds of megabytes) so you will have to
+		host it somewhere and provide a download link.
+[ ] Offline web-deployable build of Parts 1, 2, and 3.
+
+[ ] Brief documentation about your project.
+	[ ] Description of your story world (different objects and characters in the scene)
+	[ ] Different capabilities of characters and objects
+	[ ] Description of all events (multi-actor behaviors) you have implemented in your library. 		
+			This should include an illustration of each PBT.
+	[ ] Interactive Behavior Tree description, illustration of tree.
+	[ ] Other relevant information
+
+[ ] Link to blogger post or your web-page which includes but is not limited to the following:
+	[ ] documentation, PBT illustrations
+	[ ] videos
+	[ ] web playable versions of Part 1, 2, 3
+	[ ] other relevant information
